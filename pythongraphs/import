@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+
+# Import the data
+
+datayear = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022] 
+importrate = [1.5,2,2.5,3,9.5,4,8.5,5,3.5,6]
+  
+
+# Plot the graph
+plt.plot(
+    datayear,
+    importrate,
+    marker="o", 
+    linestyle="-",
+    color="blue",
+)
+
+# Add labels to the axes
+plt.xlabel("Year")
+plt.ylabel("Rate of Growth")
+
+# Add a title to the graph
+plt.title("Import of Minerals in India for the Last 10 Years")
+
+# Show the graph
+plt.show()

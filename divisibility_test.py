@@ -1,3 +1,4 @@
+print('\a')
 num1 = eval(input("Enter first number: "))
 
 if((num1%5 == 0) and (num1%10 == 0)):
