@@ -1,22 +1,15 @@
 class OperatorPrecedenceParser:
     def __init__(self):
         self.operators = {'+': 1, '-': 1, '*': 2, '/': 2}
-
     def display_precedence_table(self):
         print("Operator Precedence Table:")
         operators = list(self.operators.keys())
         operators.sort()
-
-        # Print column labels
         print("  |", end="")
         for op in operators:
             print(f" {op} ", end="|")
         print()
-
-        # Print separator line
         print("--+" + "+".join(["---" for _ in operators]))
-
-        # Print rows
         for row_op in operators:
             print(f"{row_op} |", end="")
             for col_op in operators:
@@ -27,12 +20,10 @@ class OperatorPrecedenceParser:
                 else:
                     print(" = ", end="|")
             print()
-
     def parse(self, expression):
         tokens = expression.replace(" ", "")
         stack = []
         output = []
-
         for token in tokens:
             if token.isalnum():
                 output.append(token)
@@ -46,18 +37,11 @@ class OperatorPrecedenceParser:
                 while stack and stack[-1] != '(':
                     output.append(stack.pop())
                 stack.pop()
-
         while stack:
             output.append(stack.pop())
-
-        return output
-
-    
-    
-
+        return output 
     def evaluate_postfix(self, postfix_expression):
         stack = []
-
         for token in postfix_expression:
             if token.isalnum():
                 stack.append(int(token))
@@ -77,15 +61,9 @@ class OperatorPrecedenceParser:
                     if operand2 == 0:
                         raise ValueError("Division by zero")
                     stack.append(operand1 / operand2)
-
         if len(stack) != 1:
             raise ValueError("Invalid postfix expression")
-
         return stack.pop()
-
-
-
-
 def main():
     parser = OperatorPrecedenceParser()
 
@@ -97,7 +75,5 @@ def main():
     print("Result:", result)
 
     parser.display_precedence_table()
-
-
 if __name__ == "__main__":
     main()

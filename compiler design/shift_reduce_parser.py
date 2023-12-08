@@ -15,19 +15,15 @@ def check():
             print(f"{ac}4".ljust(20), end="")
             stk[z] = 'E'
             print(f"${''.join(stk)}\t{'' if j == c else a[j:]}$".ljust(20))
-
     new_stk = [] 
-
     for z in range(len(stk) - 2):
         if stk[z] == '2' and stk[z + 1] == 'E' and stk[z + 2] == '2':
             print(f"{ac}2E2".ljust(20), end="")
             stk[z:z + 3] = 'E'
             print(f"${''.join(stk)}\t{'' if j == c else a[j:]}$".ljust(20))
             i = i - 2
-
     new_stk = [item for item in stk if item != '']
     stk = new_stk
-
     for z in range(len(stk) - 2):
         if stk[z] == '3' and stk[z + 1] == 'E' and stk[z + 2] == '3':
             print(f"{ac}3E3".ljust(20), end="")
@@ -38,7 +34,6 @@ def check():
 def main():
     global i, j, c
     global stk, act, a
-
     print("GRAMMAR is -\nE->2E2 \nE->3E3 \nE->4")
     c = len(a)
     act = "SHIFT"
@@ -56,7 +51,5 @@ def main():
         print("Accept")
     else:  # else reject
         print("Reject")
-
-
 if __name__ == "__main__":
     main()
