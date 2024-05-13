@@ -44,6 +44,7 @@ def solve_n_queens_util(board, row, N):
 
 def solve_n_queens(N):
     board = [[0] * N for _ in range(N)]
+    print(board)
     solve_n_queens_util(board, 0, N)
 
 # Test the program
